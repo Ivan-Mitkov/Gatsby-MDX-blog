@@ -6,9 +6,9 @@ import Posts from '../components/Posts'
 // ...GatsbyImageSharpFluid
 const PostsPage = ({ data }) => {
   return (
-    <>
+    <Layout>
       <Hero />
-    </>
+    </Layout>
   )
 }
 

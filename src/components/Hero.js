@@ -14,7 +14,7 @@ const query = graphql`
 `
 const Hero = ({ showPerson }) => {
   const result = useStaticQuery(query)
-  console.log(result)
+  // console.log(result)
   const { person } = result
   return (
     <header className="hero">

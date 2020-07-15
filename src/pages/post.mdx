@@ -1,0 +1,72 @@
+import { Link } from 'gatsby'
+import { FiInfo } from 'react-icons/fi'
+import { LikeButton, Counter } from '../components/Complete/'
+
+<section className='mdx-page'>
+
+## My first MDX file
+
+**I'm baby snackwave truffaut pitchfork wolf mumblecore helvetica bitters blue bottle.**
+Pork belly selfies hammock mlkshk activated charcoal viral ethical affogato keffiyeh,
+readymade banjo roof party irony +1 microdosing. Scenester polaroid wayfarers, kinfolk fingerstache activated charcoal pickled semiotics vape 90's post-ironic. Glossier fixie DIY, messenger bag tofu VHS disrupt craft beer williamsburg._Tattooed thundercats activated charcoal, readymade tbh fixie blog pabst dreamcatcher typewriter squid._
+
+Tote bag mumblecore copper mug freegan kinfolk.
+
+<div className="code">
+
+```js
+const IndexPage = () => {
+  return (
+    <Layout>
+      <Hero showPerson />
+    </Layout>
+  )
+}
+```
+
+</div>
+<Link to='/posts' className='btn center-btn'>Back to all posts</Link>
+
+<div className='nice-text'>
+
+<h3>nice text</h3>
+
+<FiInfo className="nice-text-icon"></FiInfo>
+
+Selvage hoodie asymmetrical meh mixtape art party shoreditch brunch health goth letterpress quinoa craft beer. Photo booth snackwave farm-to-table cred vaporware tousled. Williamsburg brooklyn hot chicken lo-fi. Poke williamsburg small batch humblebrag franzen meditation put a bird on it offal affogato slow-carb vegan.
+
+</div>
+
+<h2>React Components</h2>
+
+<Counter />
+
+```jsx
+import React from 'react'
+import styled from 'styled-components'
+import { AiOutlineLike } from 'react-icons/ai'
+const LikeButton = () => {
+  const [value, setValue] = React.useState(0)
+  return (
+    <Wrapper>
+      <div>
+        <button onClick={() => setValue(value + 1)}>
+          <AiOutlineLike />
+        </button>
+        <p>
+          Liked the post?
+          <br />
+          Click thumbs up few times
+        </p>
+      </div>
+      <span>+{value}</span>
+    </Wrapper>
+  )
+}
+
+export default LikeButton
+```
+
+<LikeButton />
+
+</section>

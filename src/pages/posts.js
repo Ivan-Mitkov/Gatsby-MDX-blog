@@ -3,11 +3,40 @@ import Layout from '../components/Layout'
 import Hero from '../components/Hero'
 import { graphql } from 'gatsby'
 import Posts from '../components/Posts'
-// ...GatsbyImageSharpFluid
+export const query = graphql`
+  {
+    allMdx(sort: { fields: frontmatter___date, order: DESC }) {
+      nodes {
+        excerpt
+        frontmatter {
+          title
+          author
+          category
+          date(formatString: "MMM/DD/YYYY")
+          slug
+          readTime
+          image {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+        id
+      }
+    }
+  }
+`
+
 const PostsPage = ({ data }) => {
+  const {
+    allMdx: { nodes: posts },
+  } = data
   return (
     <Layout>
       <Hero />
+      <Posts posts={posts} title="all posts"></Posts>
     </Layout>
   )
 }

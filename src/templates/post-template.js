@@ -6,9 +6,56 @@ import Image from 'gatsby-image'
 import Banner from '../components/Banner'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-// ...GatsbyImageSharpFluid
-const PostTemplate = () => {
-  return <h2>post template</h2>
+
+export const query = graphql`
+  query GetSinglePost($slug: String) {
+    mdx(frontmatter: { slug: { eq: $slug } }) {
+      frontmatter {
+        category
+        title
+        readTime
+        slug
+        date(formatString: "MM, dd, YYYY")
+        image {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+      body
+    }
+  }
+`
+const PostTemplate = ({ data }) => {
+  console.log(data)
+  const {
+    mdx: {
+      frontmatter: { title, category, date, image },
+      body,
+    },
+  } = data
+  return (
+    <Layout>
+      <Hero />
+      <Wrapper>
+        <article>
+          <Image fluid={image.childImageSharp.fluid}></Image>
+          <div className="post-info">
+            <span>{category}</span>
+            <h2>{title}</h2>
+            <p>{date}</p>
+            <div className="underline"></div>
+          </div>
+          <MDXRenderer>{body}</MDXRenderer>
+        </article>
+        <article>
+          <Banner />
+        </article>
+      </Wrapper>
+    </Layout>
+  )
 }
 
 const Wrapper = styled.section`

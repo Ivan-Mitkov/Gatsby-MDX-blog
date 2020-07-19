@@ -1,16 +1,8 @@
 import { Link } from 'gatsby'
 import { FiInfo } from 'react-icons/fi'
-import { LikeButton, Counter } from '../components/Complete/'
+import { LikeButton, Counter, RegVideo, Video } from '../components/Complete/'
 
 <section className='mdx-page'>
-
-<div className='mdx-img'>
-
-![nice image](../assets/gatsby-1.png)
-
-</div>
-Styling inline images is not so obvious
-
 
 ## My first MDX file
 
@@ -75,6 +67,53 @@ export default LikeButton
 ```
 
 <LikeButton />
+
+<h2>Regular Video Components</h2>
+
+<RegVideo />
+
+<Video />
+
+<a
+  target="_blank"
+  href="https://www.gatsbyjs.org/docs/working-with-video/#hosting-your-own-html5-video-files"
+>
+  Gatsby video
+</a>
+
+<div>
+css
+
+```jsx
+.video {
+    overflow: hidden;
+    /* // Calculated from the aspect ration of the content (in case of 16:9 it is 9/16= 0.5625) */
+    padding-top: 56.25%;
+    position: relative;
+    border-radius: var(--radius);
+  }
+ .video iframe {
+    border: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+```
+
+ </div>
+<br />
+<br />
+<br />
+<h2>Inline Image</h2>
+
+<div className='mdx-img'>
+
+![nice image](../assets/gatsby-1.png)
+
+</div>
+Styling inline images is not so obvious
 
 <Link to="/posts" className="btn center-btn">
   Back to all posts

@@ -29,7 +29,7 @@ export const query = graphql`
   }
 `
 const PostTemplate = ({ data }) => {
-  console.log(data)
+  // console.log(data)
   const {
     mdx: {
       frontmatter: { title, category, date, image },

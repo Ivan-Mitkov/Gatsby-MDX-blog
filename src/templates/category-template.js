@@ -32,7 +32,7 @@ export const query = graphql`
   }
 `
 const CategoryTemplate = props => {
-  console.log(props)
+  // console.log(props)
   const {
     data: {
       categories: { nodes: posts },

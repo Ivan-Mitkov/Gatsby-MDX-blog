@@ -6,7 +6,7 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 
 const Post = props => {
-  console.log(props)
+  // console.log(props)
   const { frontmatter, excerpt } = props
   const {
     title,

@@ -6,12 +6,22 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 
 const Post = props => {
-  // console.log(props)
+  console.log(props)
   const { frontmatter, excerpt } = props
-  const { title, image, slug, author, date, category, readTime } = frontmatter
+  const {
+    title,
+    image: {
+      childImageSharp: { fluid },
+    },
+    slug,
+    author,
+    date,
+    category,
+    readTime,
+  } = frontmatter
   return (
     <Wrapper>
-      <Image fluid={image.childImageSharp.fluid} className="img" />
+      <Image fluid={fluid} className="img" />
       <div className="info">
         <span className="category">{category}</span>
         <h3>{title}</h3>

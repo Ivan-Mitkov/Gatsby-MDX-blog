@@ -3,10 +3,37 @@ import Title from './Title'
 import Image from 'gatsby-image'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-//...GatsbyImageSharpFluid
-
+const query = graphql`
+  {
+    allInstaNode(limit: 6) {
+      nodes {
+        localFile {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+      totalCount
+    }
+  }
+`
 const Instagram = () => {
-  return <Wrapper>Banner Instagram</Wrapper>
+  const data = useStaticQuery(query)
+  const {
+    allInstaNode: { nodes },
+  } = data
+  return (
+    <Wrapper>
+      <Title title="instagram" />
+      <div className="images">
+        {nodes.map((image, i) => {
+          return <Image key={i} fluid={image.localFile.childImageSharp.fluid} />
+        })}
+      </div>
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.article`

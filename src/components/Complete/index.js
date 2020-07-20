@@ -3,6 +3,7 @@ import LikeButton from './LikeButton'
 import { RegVideo, Video } from './Video'
 import * as Headings from './Headings'
 import Code from './Code'
+import Example from './Example'
 import Blockquote from './Blockquote'
 import PrismSetup from './PrismSetup'
 export {
@@ -14,4 +15,5 @@ export {
   Code,
   Blockquote,
   PrismSetup,
+  Example,
 }

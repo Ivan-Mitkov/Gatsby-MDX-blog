@@ -3,6 +3,8 @@ import Layout from '../components/Layout'
 import Hero from '../components/Hero'
 import { graphql } from 'gatsby'
 import Posts from '../components/Posts'
+import SEO from '../components/SEO'
+
 export const query = graphql`
   {
     allMdx(sort: { fields: frontmatter___date, order: DESC }) {
@@ -35,6 +37,7 @@ const PostsPage = ({ data }) => {
   } = data
   return (
     <Layout>
+      <SEO title="Gatsby posts" />
       <Hero />
       <Posts posts={posts} title="all posts"></Posts>
     </Layout>

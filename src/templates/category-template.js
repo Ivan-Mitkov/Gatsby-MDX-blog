@@ -3,6 +3,8 @@ import Layout from '../components/Layout'
 import Hero from '../components/Hero'
 import Posts from '../components/Posts'
 import { graphql } from 'gatsby'
+import SEO from '../components/SEO'
+
 export const query = graphql`
   query GetCategories($category: String) {
     categories: allMdx(
@@ -42,6 +44,7 @@ const CategoryTemplate = props => {
 
   return (
     <Layout>
+      <SEO title={category} />
       <Hero />
       <Posts posts={posts} title={`category/${category}`} />
     </Layout>
